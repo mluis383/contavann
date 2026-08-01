@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTAVANN | Contabilidade Moderna</title>
+    <!-- BIBLIOTECA FONT AWESOME ADICIONADA PARA O ÍCONE DO WHATSAPP -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        /* --- VARIÁVEIS DE DESIGN --- */
+        :root {
+            --primary: #0F172A;
+            --accent: #2563EB;
+            --whatsapp: #25D366;
+            --text: #334155;
+            --bg-light: #F8FAFC;
+            --white: #FFFFFF;
+            --transition: all 0.3s ease;
+        }
+
+        /* --- RESET & CONFIGURAÇÕES GERAIS --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* --- HEADER & MENU INTERATIVO (HAMBÚRGUER COM SUBMENU) --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .menu-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hamburger-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 10px;
+            z-index: 1001;
+        }
+
+        .hamburger-btn span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        .main-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: var(--white);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            list-style: none;
+            width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            border: 1px solid #E2E8F0;
+        }
+
+        .menu-container:hover .main-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .main-menu li {
+            position: relative;
+        }
+
+        .menu-item {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .menu-item:hover {
+            background-color: #F1F5F9;
+            color: var(--accent);
+        }
+
+        .submenu {
+            position: absolute;
+            top: 0;
+            right: 100%;
+            background-color: var(--white);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            list-style: none;
+            width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(10px);
+            transition: var(--transition);
+            border: 1px solid #E2E8F0;
+        }
+
+        .has-submenu:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        .submenu-btn {
+            display: block;
+            width: 100%;
+            padding: 0.8rem 1.5rem;
+            background: none;
+            border: none;
+            text-align: left;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .submenu-btn:hover {
+            background-color: var(--accent);
+            color: var(--white);
+        }
+
+        .has-submenu::after {
+            content: ' ◂';
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            font-size: 0.8rem;
+            color: #94A3B8;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 12rem 0 6rem 0;
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            color: var(--white);
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #94A3B8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- TÍTULOS DE SEÇÃO --- */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: var(--accent);
+            margin: 0.5rem auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* --- SEÇÃO SOBRE NÓS --- */
+        .about-section {
+            padding: 6rem 0;
+            background-color: var(--white);
+            scroll-margin-top: 6rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            font-size: 1.05rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background-color: var(--bg-light);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid var(--accent);
+        }
+
+        .stat-card h4 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card p {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* --- CARROSSEL DE SERVIÇOS --- */
+        .services-section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #E2E8F0;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            width: 100%;
+        }
+
+        .service-card {
+            flex: 0 0 100%;
+            width: 100%;
+            background-color: var(--white);
+            padding: 4rem 3rem;
+            text-align: center;
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--text);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--white);
+            border: 1px solid #E2E8F0;
+            color: var(--primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background-color: var(--accent);
+            color: var(--white);
+            border-color: var(--accent);
+        }
+
+        .carousel-btn.prev { left: calc(50% - 460px); }
+        .carousel-btn.next { right: calc(50% - 460px); }
+
+        /* --- SEÇÃO FALE CONOSCO --- */
+        .contact-section {
+            padding: 6rem 0;
+            background-color: var(--white);
+            scroll-margin-top: 6rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background-color: var(--bg-light);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #E2E8F0;
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            border-color: var(--accent);
+        }
+
+        .contact-icon-svg {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 1.2rem;
+        }
+
+        .contact-icon-svg.insta {
+            fill: none;
+            stroke: var(--primary);
+            stroke-width: 2;
+        }
+        
+        .contact-card:hover .contact-icon-svg.insta {
+            stroke: #E1306C;
+        }
+
+        .contact-icon-svg.wpp {
+            fill: #25D366;
+        }
+
+        .contact-icon-svg.mail {
+            fill: var(--accent);
+        }
+
+        .contact-card h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card p {
+            font-size: 1rem;
+            color: var(--text);
+            font-weight: 600;
+            word-break: break-all;
+        }
+
+        .contact-card:hover p {
+            color: var(--accent);
+        }
+
+        /* --- AJUSTE DEFINITIVO DO BOTÃO DO WHATSAPP (ESTILO ROMAX) --- */
+        .whatsapp { 
+            position: fixed; 
+            right: 25px; 
+            bottom: 25px; 
+            width: 65px; 
+            height: 65px; 
+            display: grid; 
+            place-items: center; 
+            border-radius: 50%; 
+            background: #25d366; 
+            color: #fff; 
+            text-decoration: none; 
+            font-size: 30px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,.3); 
+            z-index: 999; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .whatsapp:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary);
+            color: #94A3B8;
+            padding: 3rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 968px) {
+            .about-content { grid-template-columns: 1fr; gap: 2.5rem; }
+            .carousel-btn { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / NAVEGAÇÃO COMPACTA -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">CONTA<span>VANN</span></div>
+                
+                <div class="menu-container">
+                    <button class="hamburger-btn" aria-label="Abrir Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    
+                    <ul class="main-menu">
+                        <li><a href="#sobre-nos" class="menu-item">Sobre Nós</a></li>
+                        <li><a href="#fale-conosco" class="menu-item">Fale Conosco</a></li>
+                        
+                        <li class="has-submenu">
+                            <span class="menu-item">Sou Cliente</span>
+                            <ul class="submenu">
+                                <li><a href="https://www.ironsolutions.com.br" target="_blank" class="submenu-btn">SERVIÇO 1</a></li>
+                                <li><a href="https://www.ironsolutions.com.br" target="_blank" class="submenu-btn">SERVIÇO 2</a></li>
+                                <li><a href="https://www.ironsolutions.com.br" target="_blank" class="submenu-btn">SERVIÇO 3</a></li>
+                                <li><a href="https://www.ironsolutions.com.br" target="_blank" class="submenu-btn">SERVIÇO 4</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <h1>Descomplique a Contabilidade da sua Empresa</h1>
+            <p>Soluções modernas, digitais e seguras para o seu negócio focar apenas no crescimento.</p>
+        </div>
+    </section>
+
+    <!-- SEÇÃO COMPLETA: SOBRE NÓS -->
+    <section class="about-section" id="sobre-nos">
+        <div class="container">
+            <h2 class="section-title">Sobre Nós</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Inovação e Confiança no DNA</h3>
+                    <p>Na <strong>CONTAVANN</strong>, quebramos o paradigma da contabilidade tradicional e burocrática. Nascemos com o propósito de ser a parceira estratégica que impulsiona o crescimento de micro, pequenas e grandes empresas através de inteligência financeira e suporte tecnológico moderno.</p>
+                    <p>Nossa equipe de especialistas alia o rigor técnico legal às ferramentas digitais mais avançadas do mercado, garantindo total conformidade fiscal, clareza nos relatórios e a agilidade que o mercado atual exige.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <h4>+500</h4>
+                        <p>Empresas Atendidas</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>99%</h4>
+                        <p>Satisfação dos Clientes</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>100%</h4>
+                        <p>Digital e Seguro</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>15+</h4>
+                        <p>Anos de Experiência</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO: CARROSSEL DE SERVIÇOS -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">Nossas Soluções</h2>
+            
+            <button class="carousel-btn prev" onclick="moveManual(-1)">&#10094;</button>
+            <button class="carousel-btn next" onclick="moveManual(1)">&#10095;</button>
+
+            <div class="carousel-container">
+                <div class="carousel-track" id="track">
+                    <div class="service-card">
+                        <span class="service-icon">🏢</span>
+                        <h3>Abertura de CNPJ</h3>
+                        <p>Abra sua empresa de forma rápida, regularizada e sem burocracia. Cuidamos de todo o processo legal para você começar a faturar com segurança.</p>
+                    </div>
+                    <div class="service-card">
+                        <span class="service-icon">📊</span>
+                        <h3>Declaração de IR</h3>
+                        <p>Evite cair na malha fina. Realizamos a declaração do seu Imposto de Renda Pessoa Física ou Jurídica com foco total em otimização e inteligência fiscal.</p>
+                    </div>
+                    <div class="service-card">
+                        <span class="service-icon">💼</span>
+                        <h3>Gestão Mensal</h3>
+                        <p>Acompanhamento completo de balanços, folhas de pagamento e emissão de guias tributárias. Sua empresa 100% em conformidade com o fisco.</p>
+                    </div>
+                    <div class="service-card">
+                        <span class="service-icon">📈</span>
+                        <h3>Planejamento Fiscal</h3>
+                        <p>Análise aprofundada da estrutura tributária do seu modelo de negócio para reduzir legalmente custos e maximizar os lucros operacionais.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO: FALE CONOSCO -->
+    <section class="contact-section" id="fale-conosco">
+        <div class="container">
+            <h2 class="section-title">Fale Conosco</h2>
+            
+            <div class="contact-grid">
+                <!-- Cartão Instagram -->
+                <a href="https://instagram.com/contadora.vanessamatos" target="_blank" class="contact-card">
+                    <svg class="contact-icon-svg insta" viewBox="0 0 24 24">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                    <h3>Instagram</h3>
+                    <p>@contadora.vanessamatos</p>
+                </a>
+
+                <!-- Cartão WhatsApp Atualizado com o Ícone Anexo -->
+<a href="https://wa.me/5511916327410" target="_blank" class="contact-card">
+    <svg class="contact-icon-svg" viewBox="0 0 512 512" style="width: 50px; height: 50px; fill: #25D366; margin-bottom: 1.2rem;">
+        <path d="M256.017 0C114.63 0 0 114.629 0 256.014c0 45.197 11.734 89.345 34.004 128.512L0 512l131.054-34.357c37.669 20.547 80.25 31.378 124.935 31.378 141.399 0 256.029-114.629 256.029-256.007C512.017 114.63 397.416 0 256.017 0zm0 469.333c-40.402 0-79.998-10.835-114.507-31.334l-8.216-4.881-77.72 20.379 20.738-75.768-5.364-8.527C48.272 329.563 37.333 293.385 37.333 256.014c0-120.584 98.1-218.681 218.684-218.681 120.572 0 218.656 98.097 218.656 218.681 0 120.595-98.084 218.719-218.656 218.719zm119.825-163.633c-6.574-3.284-38.892-19.183-44.912-21.374-6.02-2.191-10.401-3.284-14.783 3.284-4.382 6.568-16.974 21.374-20.803 25.756-3.83 4.382-7.66 4.93-14.234 1.646-6.574-3.284-27.753-10.231-52.863-32.628-19.544-17.426-32.741-38.947-36.571-45.521-3.83-6.574-.41-10.126 2.876-13.399 2.951-2.94 6.574-7.66 9.858-11.492 3.284-3.83 4.382-6.568 6.574-10.952 2.191-4.382 1.096-8.216-.548-11.492-1.646-3.284-14.783-35.617-20.26-48.749-5.337-12.784-10.748-11.054-14.783-11.261l-12.602-.218c-4.382 0-11.492 1.646-17.512 8.216-6.02 6.568-22.977 22.467-22.977 54.796 0 32.328 23.525 63.541 26.81 67.923 3.284 4.382 46.297 70.697 112.152 99.117 15.663 6.76 27.886 10.792 37.422 13.824 15.727 4.996 30.043 4.292 41.353 2.603 12.613-1.884 38.892-15.895 44.368-31.215 5.476-15.32 5.476-28.463 3.83-31.215-1.646-2.759-6.02-4.394-12.594-7.678z"/>
+    </svg>
+    <h3>WhatsApp</h3>
+    <p>(11) 91632-7410</p>
+</a>
+
+                <!-- Cartão E-mail -->
+                <a href="mailto:contavann@gmail.com" class="contact-card">
+                    <svg class="contact-icon-svg mail" viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    <h3>E-mail</h3>
+                    <p>contavann@gmail.com</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 CONTAVANN Contabilidade. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- BOTÃO FLUTUANTE DO WHATSAPP (IGUAL AO ENVIADO NA REFERÊNCIA) -->
+    <a class="whatsapp" href="https://wa.me/5511916327410" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- LÓGICA DO CARROSSEL EM JAVASCRIPT -->
+    <script>
+        let currentIndex = 0;
+        const track = document.getElementById('track');
+        const totalCards = 4;
+        let autoSlideInterval;
+
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        function nextSlide() {
+            currentIndex++;
+            if (currentIndex >= totalCards) {
+                currentIndex = 0;
+            }
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentIndex--;
+            if (currentIndex < 0) {
+                currentIndex = totalCards - 1;
+            }
+            updateCarousel();
+        }
+
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(nextSlide, 3000);
+        }
+
+        function moveManual(direction) {
+            clearInterval(autoSlideInterval);
+            if (direction === 1) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+            startAutoSlide();
+        }
+
+        startAutoSlide();
+    </script>
+</body>
+</html>
