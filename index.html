@@ -60,16 +60,55 @@
             align-items: center;
             padding: 1.2rem 0;
         }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            letter-spacing: 1px;
+/* --- NOVO DESIGN DO LOGO (MODERNO & CHAMATIVO) --- */
+        .logo-moderno {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
         }
 
-        .logo span {
+        .logo-icone {
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, var(--accent) 0%, #00d2ff 100%);
+            color: var(--white);
+            border-radius: 10px;
+            padding: 6px;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+            transition: var(--transition);
+        }
+
+        .logo-texto {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-family: 'Segoe UI', sans-serif;
+            transition: var(--transition);
+        }
+
+        .logo-texto .destaque {
             color: var(--accent);
+            position: relative;
+            background: linear-gradient(to right, var(--accent), #00b4db);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Efeito interativo ao passar o mouse no cabeçalho */
+        .logo-moderno:hover .logo-icone {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+        }
+
+        .logo-moderno:hover .logo-texto {
+            letter-spacing: 2px;
         }
 
         .menu-container {
@@ -480,6 +519,35 @@
             .about-content { grid-template-columns: 1fr; gap: 2.5rem; }
             .carousel-btn { display: none; }
         }
+		
+		/* --- AJUSTE DE RESPONSIVIDADE DO LOGO --- */
+        .logo-texto {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-family: 'Segoe UI', sans-serif;
+            transition: var(--transition);
+            white-space: nowrap; /* Impede que o nome quebre em duas linhas */
+        }
+
+        @media (max-width: 480px) {
+            .logo-moderno {
+                gap: 8px; /* Diminui o espaço entre o ícone e o texto no celular */
+            }
+            .logo-icone {
+                width: 32px;  /* Deixa o ícone ligeiramente menor no celular */
+                height: 32px;
+                padding: 5px;
+            }
+            .logo-texto {
+                font-size: 1.25rem; /* Diminui a letra para caber perfeitamente ao lado do menu */
+                letter-spacing: 1px;
+            }
+        }
+		
+		
     </style>
 </head>
 <body>
@@ -488,7 +556,15 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">CONTA<span>VANN</span></div>
+                <!-- NOVO LOGO MODERNO E CHAMATIVO -->
+<a href="#inicio" class="logo-moderno" aria-label="CONTAVANN Contabilidade">
+    <span class="logo-icone">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </span>
+    <span class="logo-texto">CONTA<span class="destaque">VANN</span></span>
+</a>
                 
                 <div class="menu-container">
                     <button class="hamburger-btn" aria-label="Abrir Menu">
