@@ -564,6 +564,51 @@
                 padding: 0 15px;
             }
         }
+		/* --- CORREÇÃO GLOBAL DE VAZAMENTO PARA CELULAR --- */
+        @media (max-width: 968px) {
+            .about-content { 
+                grid-template-columns: 1fr; 
+                gap: 2.5rem; 
+            }
+            .carousel-btn { 
+                display: none; 
+            }
+        }
+
+        /* --- AJUSTES ESPECÍFICOS PARA TELAS MENORES (CELULARES) --- */
+        @media (max-width: 768px) {
+            /* Impede o corpo da página de rolar lateralmente */
+            html, body {
+                overflow-x: hidden;
+                width: 100%;
+            }
+
+            .container {
+                width: 92%; /* Dá uma margem de segurança nas laterais */
+                padding: 0;
+            }
+
+            /* Corrige o grid de estatísticas que está empurrando a tela para a direita */
+            .about-stats {
+                grid-template-columns: 1fr; /* Transforma em 1 coluna no celular para não esmagar */
+                gap: 1rem;
+                width: 100%;
+            }
+
+            .stat-card {
+                padding: 1.5rem;
+            }
+
+            /* Evita que qualquer título grande ultrapasse a borda direita */
+            .about-text h3 {
+                font-size: 1.5rem;
+                word-wrap: break-word;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
     </style>
 </head>
 <body>
