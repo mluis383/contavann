@@ -547,7 +547,23 @@
             }
         }
 		
-		
+		/* --- AJUSTES DE RESPONSIVIDADE PARA O HERO (CELULAR) --- */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 8rem 0 4rem 0; /* Diminui o espaçamento do topo para não empurrar muito o texto para baixo */
+            }
+
+            .hero h1 {
+                font-size: 1.8rem; /* Reduz o título para um tamanho proporcional que caiba sem quebras estranhas */
+                line-height: 1.3;  /* Ajusta o espaçamento entre as linhas do título */
+                padding: 0 10px;   /* Evita que o texto encoste nas bordas da tela */
+            }
+
+            .hero p {
+                font-size: 1rem;   /* Ajusta o tamanho da descrição curta abaixo do título */
+                padding: 0 15px;
+            }
+        }
     </style>
 </head>
 <body>
