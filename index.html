@@ -60,7 +60,8 @@
             align-items: center;
             padding: 1.2rem 0;
         }
-/* --- NOVO DESIGN DO LOGO (MODERNO & CHAMATIVO) --- */
+
+        /* --- NOVO DESIGN DO LOGO (MODERNO & CHAMATIVO) --- */
         .logo-moderno {
             display: flex;
             align-items: center;
@@ -101,7 +102,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Efeito interativo ao passar o mouse no cabeçalho */
         .logo-moderno:hover .logo-icone {
             transform: scale(1.1) rotate(5deg);
             box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
@@ -316,7 +316,7 @@
         }
 
         .stat-card h4 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: var(--accent);
             margin-bottom: 0.5rem;
         }
@@ -481,7 +481,7 @@
             color: var(--accent);
         }
 
-        /* --- AJUSTE DEFINITIVO DO BOTÃO DO WHATSAPP (ESTILO ROMAX) --- */
+        /* --- AJUSTE DEFINITIVO DO BOTÃO DO WHATSAPP --- */
         .whatsapp { 
             position: fixed; 
             right: 25px; 
@@ -520,7 +520,6 @@
             .carousel-btn { display: none; }
         }
 		
-		/* --- AJUSTE DE RESPONSIVIDADE DO LOGO --- */
         .logo-texto {
             font-size: 1.6rem;
             font-weight: 800;
@@ -529,42 +528,41 @@
             text-transform: uppercase;
             font-family: 'Segoe UI', sans-serif;
             transition: var(--transition);
-            white-space: nowrap; /* Impede que o nome quebre em duas linhas */
+            white-space: nowrap;
         }
 
         @media (max-width: 480px) {
             .logo-moderno {
-                gap: 8px; /* Diminui o espaço entre o ícone e o texto no celular */
+                gap: 8px;
             }
             .logo-icone {
-                width: 32px;  /* Deixa o ícone ligeiramente menor no celular */
+                width: 32px;  
                 height: 32px;
                 padding: 5px;
             }
             .logo-texto {
-                font-size: 1.25rem; /* Diminui a letra para caber perfeitamente ao lado do menu */
+                font-size: 1.25rem; 
                 letter-spacing: 1px;
             }
         }
 		
-		/* --- AJUSTES DE RESPONSIVIDADE PARA O HERO (CELULAR) --- */
         @media (max-width: 768px) {
             .hero {
-                padding: 8rem 0 4rem 0; /* Diminui o espaçamento do topo para não empurrar muito o texto para baixo */
+                padding: 8rem 0 4rem 0; 
             }
 
             .hero h1 {
-                font-size: 1.8rem; /* Reduz o título para um tamanho proporcional que caiba sem quebras estranhas */
-                line-height: 1.3;  /* Ajusta o espaçamento entre as linhas do título */
-                padding: 0 10px;   /* Evita que o texto encoste nas bordas da tela */
+                font-size: 1.8rem; 
+                line-height: 1.3;  
+                padding: 0 10px;   
             }
 
             .hero p {
-                font-size: 1rem;   /* Ajusta o tamanho da descrição curta abaixo do título */
+                font-size: 1rem;   
                 padding: 0 15px;
             }
         }
-		/* --- CORREÇÃO GLOBAL DE VAZAMENTO PARA CELULAR --- */
+		
         @media (max-width: 968px) {
             .about-content { 
                 grid-template-columns: 1fr; 
@@ -575,22 +573,19 @@
             }
         }
 
-        /* --- AJUSTES ESPECÍFICOS PARA TELAS MENORES (CELULARES) --- */
         @media (max-width: 768px) {
-            /* Impede o corpo da página de rolar lateralmente */
             html, body {
                 overflow-x: hidden;
                 width: 100%;
             }
 
             .container {
-                width: 92%; /* Dá uma margem de segurança nas laterais */
+                width: 92%; 
                 padding: 0;
             }
 
-            /* Corrige o grid de estatísticas que está empurrando a tela para a direita */
             .about-stats {
-                grid-template-columns: 1fr; /* Transforma em 1 coluna no celular para não esmagar */
+                grid-template-columns: 1fr; 
                 gap: 1rem;
                 width: 100%;
             }
@@ -599,7 +594,6 @@
                 padding: 1.5rem;
             }
 
-            /* Evita que qualquer título grande ultrapasse a borda direita */
             .about-text h3 {
                 font-size: 1.5rem;
                 word-wrap: break-word;
@@ -617,15 +611,14 @@
     <header>
         <div class="container">
             <nav>
-                <!-- NOVO LOGO MODERNO E CHAMATIVO -->
-<a href="#inicio" class="logo-moderno" aria-label="CONTAVANN Contabilidade">
-    <span class="logo-icone">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </span>
-    <span class="logo-texto">CONTA<span class="destaque">VANN</span></span>
-</a>
+                <a href="#inicio" class="logo-moderno" aria-label="CONTAVANN Contabilidade">
+                    <span class="logo-icone">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                    <span class="logo-texto">CONTA<span class="destaque">VANN</span></span>
+                </a>
                 
                 <div class="menu-container">
                     <button class="hamburger-btn" aria-label="Abrir Menu">
@@ -662,19 +655,27 @@
     </section>
 
     <!-- SEÇÃO COMPLETA: SOBRE NÓS -->
+    <!-- SEÇÃO COMPLETA: SOBRE NÓS -->
     <section class="about-section" id="sobre-nos">
         <div class="container">
             <h2 class="section-title">Sobre Nós</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Inovação e Confiança no DNA</h3>
-                    <p>Na <strong>CONTAVANN</strong>, quebramos o paradigma da contabilidade tradicional e burocrática. Nascemos com o propósito de ser a parceira estratégica que impulsiona o crescimento de micro, pequenas e grandes empresas através de inteligência financeira e suporte tecnológico moderno.</p>
-                    <p>Nossa equipe de especialistas alia o rigor técnico legal às ferramentas digitais mais avançadas do mercado, garantindo total conformidade fiscal, clareza nos relatórios e a agilidade que o mercado atual exige.</p>
+                    <h3>Contavann Contabilidade e Gestão Financeira</h3>
+                    <p>Fundada em 2024, a Contavann nasceu com o propósito de transformar a contabilidade em uma ferramenta estratégica para quem empreende, oferecendo um atendimento próximo, consultivo e personalizado.</p>
+                    <p>Atendemos empresas de diversos portes e regimes tributários, incluindo MEI, Simples Nacional, Lucro Presumido e Lucro Real, além de prestadores de serviços, profissionais autônomos e empresários em todo o Brasil e no exterior.</p>
+                    <p>Nossa atuação vai além da rotina contábil. Oferecemos soluções completas para abertura, regularização e gestão de empresas, planejamento tributário, folha de pagamento, consultoria empresarial, saída fiscal do Brasil (Exit Tax), Carnê-Leão para profissionais autônomos, além de assessoria especializada para pessoas não residentes que recebem rendimentos de fonte brasileira, sempre com foco em segurança, conformidade fiscal e economia tributária.</p>
+                    <p>Mais do que cumprir obrigações fiscais, nosso compromisso é ajudar empresários e profissionais a tomar decisões estratégicas, reduzir riscos, manter a regularidade perante os órgãos fiscais e crescer de forma sustentável.</p>
+                    <p>Na Contavann contabilidade, acreditamos que um atendimento humanizado, aliado ao conhecimento técnico e à atualização constante da legislação, faz toda a diferença para quem deseja empreender com tranquilidade e segurança.</p>
                 </div>
                 <div class="about-stats">
                     <div class="stat-card">
                         <h4>+500</h4>
                         <p>Empresas Atendidas</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Global</h4>
+                        <p>Clientes Internacionais</p>
                     </div>
                     <div class="stat-card">
                         <h4>99%</h4>
@@ -683,10 +684,6 @@
                     <div class="stat-card">
                         <h4>100%</h4>
                         <p>Digital e Seguro</p>
-                    </div>
-                    <div class="stat-card">
-                        <h4>15+</h4>
-                        <p>Anos de Experiência</p>
                     </div>
                 </div>
             </div>
@@ -705,23 +702,33 @@
                 <div class="carousel-track" id="track">
                     <div class="service-card">
                         <span class="service-icon">🏢</span>
-                        <h3>Abertura de CNPJ</h3>
-                        <p>Abra sua empresa de forma rápida, regularizada e sem burocracia. Cuidamos de todo o processo legal para você começar a faturar com segurança.</p>
+                        <h3>Legalização & Abertura</h3>
+                        <p>Abertura, alteração, regularização e encerramento de empresas e CNPJs de forma rápida e segura.</p>
                     </div>
                     <div class="service-card">
                         <span class="service-icon">📊</span>
-                        <h3>Declaração de IR</h3>
-                        <p>Evite cair na malha fina. Realizamos a declaração do seu Imposto de Renda Pessoa Física ou Jurídica com foco total em otimização e inteligência fiscal.</p>
-                    </div>
-                    <div class="service-card">
-                        <span class="service-icon">💼</span>
-                        <h3>Gestão Mensal</h3>
-                        <p>Acompanhamento completo de balanços, folhas de pagamento e emissão de guias tributárias. Sua empresa 100% em conformidade com o fisco.</p>
+                        <h3>Assessoria Contábil & Fiscal</h3>
+                        <p>Atendimento especializado para MEI, Simples Nacional, Lucro Presumido e Lucro Real, com emissão de notas e guias.</p>
                     </div>
                     <div class="service-card">
                         <span class="service-icon">📈</span>
-                        <h3>Planejamento Fiscal</h3>
-                        <p>Análise aprofundada da estrutura tributária do seu modelo de negócio para reduzir legalmente custos e maximizar os lucros operacionais.</p>
+                        <h3>Planejamento & Consultoria</h3>
+                        <p>Consultoria contábil, financeira e planejamento tributário estratégico para reduzir custos legalmente.</p>
+                    </div>
+                    <div class="service-card">
+                        <span class="service-icon">💼</span>
+                        <h3>Soluções para Autônomos & Prestadores</h3>
+                        <p>Atendimento especializado para prestadores de serviços, autônomos e gestão completa de Carnê-Leão e IRPF.</p>
+                    </div>
+                    <div class="service-card">
+                        <span class="service-icon">👥</span>
+                        <h3>Departamento Pessoal</h3>
+                        <p>Gestão completa e emissão de folha de pagamento, pró-labore e cumprimento de obrigações acessórias trabalhistas.</p>
+                    </div>
+                    <div class="service-card">
+                        <span class="service-icon">🌐</span>
+                        <h3>Internacional & Regularização</h3>
+                        <p>Comunicação e Declaração de Saída Definitiva do País, assessoria a não residentes com rendimentos no Brasil, parcelamentos e certidões.</p>
                     </div>
                 </div>
             </div>
@@ -745,14 +752,14 @@
                     <p>@contadora.vanessamatos</p>
                 </a>
 
-                <!-- Cartão WhatsApp Atualizado com o Ícone Anexo -->
-<a href="https://wa.me/5511916327410" target="_blank" class="contact-card">
-    <svg class="contact-icon-svg" viewBox="0 0 512 512" style="width: 50px; height: 50px; fill: #25D366; margin-bottom: 1.2rem;">
-        <path d="M256.017 0C114.63 0 0 114.629 0 256.014c0 45.197 11.734 89.345 34.004 128.512L0 512l131.054-34.357c37.669 20.547 80.25 31.378 124.935 31.378 141.399 0 256.029-114.629 256.029-256.007C512.017 114.63 397.416 0 256.017 0zm0 469.333c-40.402 0-79.998-10.835-114.507-31.334l-8.216-4.881-77.72 20.379 20.738-75.768-5.364-8.527C48.272 329.563 37.333 293.385 37.333 256.014c0-120.584 98.1-218.681 218.684-218.681 120.572 0 218.656 98.097 218.656 218.681 0 120.595-98.084 218.719-218.656 218.719zm119.825-163.633c-6.574-3.284-38.892-19.183-44.912-21.374-6.02-2.191-10.401-3.284-14.783 3.284-4.382 6.568-16.974 21.374-20.803 25.756-3.83 4.382-7.66 4.93-14.234 1.646-6.574-3.284-27.753-10.231-52.863-32.628-19.544-17.426-32.741-38.947-36.571-45.521-3.83-6.574-.41-10.126 2.876-13.399 2.951-2.94 6.574-7.66 9.858-11.492 3.284-3.83 4.382-6.568 6.574-10.952 2.191-4.382 1.096-8.216-.548-11.492-1.646-3.284-14.783-35.617-20.26-48.749-5.337-12.784-10.748-11.054-14.783-11.261l-12.602-.218c-4.382 0-11.492 1.646-17.512 8.216-6.02 6.568-22.977 22.467-22.977 54.796 0 32.328 23.525 63.541 26.81 67.923 3.284 4.382 46.297 70.697 112.152 99.117 15.663 6.76 27.886 10.792 37.422 13.824 15.727 4.996 30.043 4.292 41.353 2.603 12.613-1.884 38.892-15.895 44.368-31.215 5.476-15.32 5.476-28.463 3.83-31.215-1.646-2.759-6.02-4.394-12.594-7.678z"/>
-    </svg>
-    <h3>WhatsApp</h3>
-    <p>(11) 91632-7410</p>
-</a>
+                <!-- Cartão WhatsApp -->
+                <a href="https://wa.me/5511916327410" target="_blank" class="contact-card">
+                    <svg class="contact-icon-svg" viewBox="0 0 512 512" style="width: 50px; height: 50px; fill: #25D366; margin-bottom: 1.2rem;">
+                        <path d="M256.017 0C114.63 0 0 114.629 0 256.014c0 45.197 11.734 89.345 34.004 128.512L0 512l131.054-34.357c37.669 20.547 80.25 31.378 124.935 31.378 141.399 0 256.029-114.629 256.029-256.007C512.017 114.63 397.416 0 256.017 0zm0 469.333c-40.402 0-79.998-10.835-114.507-31.334l-8.216-4.881-77.72 20.379 20.738-75.768-5.364-8.527C48.272 329.563 37.333 293.385 37.333 256.014c0-120.584 98.1-218.681 218.684-218.681 120.572 0 218.656 98.097 218.656 218.681 0 120.595-98.084 218.719-218.656 218.719zm119.825-163.633c-6.574-3.284-38.892-19.183-44.912-21.374-6.02-2.191-10.401-3.284-14.783 3.284-4.382 6.568-16.974 21.374-20.803 25.756-3.83 4.382-7.66 4.93-14.234 1.646-6.574-3.284-27.753-10.231-52.863-32.628-19.544-17.426-32.741-38.947-36.571-45.521-3.83-6.574-.41-10.126 2.876-13.399 2.951-2.94 6.574-7.66 9.858-11.492 3.284-3.83 4.382-6.568 6.574-10.952 2.191-4.382 1.096-8.216-.548-11.492-1.646-3.284-14.783-35.617-20.26-48.749-5.337-12.784-10.748-11.054-14.783-11.261l-12.602-.218c-4.382 0-11.492 1.646-17.512 8.216-6.02 6.568-22.977 22.467-22.977 54.796 0 32.328 23.525 63.541 26.81 67.923 3.284 4.382 46.297 70.697 112.152 99.117 15.663 6.76 27.886 10.792 37.422 13.824 15.727 4.996 30.043 4.292 41.353 2.603 12.613-1.884 38.892-15.895 44.368-31.215 5.476-15.32 5.476-28.463 3.83-31.215-1.646-2.759-6.02-4.394-12.594-7.678z"/>
+                    </svg>
+                    <h3>WhatsApp</h3>
+                    <p>(11) 91632-7410</p>
+                </a>
 
                 <!-- Cartão E-mail -->
                 <a href="mailto:contavann@gmail.com" class="contact-card">
@@ -773,7 +780,7 @@
         </div>
     </footer>
 
-    <!-- BOTÃO FLUTUANTE DO WHATSAPP (IGUAL AO ENVIADO NA REFERÊNCIA) -->
+    <!-- BOTÃO FLUTUANTE DO WHATSAPP -->
     <a class="whatsapp" href="https://wa.me/5511916327410" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
@@ -782,7 +789,7 @@
     <script>
         let currentIndex = 0;
         const track = document.getElementById('track');
-        const totalCards = 4;
+        const totalCards = 6; // Ajustado de 4 para 6 cartões
         let autoSlideInterval;
 
         function updateCarousel() {
@@ -806,7 +813,7 @@
         }
 
         function startAutoSlide() {
-            autoSlideInterval = setInterval(nextSlide, 3000);
+            autoSlideInterval = setInterval(nextSlide, 3500); // 3.5 segundos por slide
         }
 
         function moveManual(direction) {
