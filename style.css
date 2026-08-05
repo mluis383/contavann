@@ -25,13 +25,23 @@
     --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* RESET */
 *, *::before, *::after {
     margin: 0;
     padding: 0;
-    box-sizing: border-border-box;
+    box-sizing: border-box; /* Corrigido de border-border-box */
 }
 
+body, html {
+    max-width: 100vw;
+    overflow-x: hidden; /* Elimina qualquer rolagem horizontal fantasma */
+}
+
+/* Evita que títulos e textos estourem o container */
+h1, h2, h3, h4, h5, h6, p, a, span {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
 html {
     scroll-behavior: smooth;
     font-size: 16px;
@@ -270,17 +280,20 @@ ul {
     box-shadow: 0 0 10px var(--success);
 }
 .hero-title {
-    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-size: clamp(1.6rem, 7vw, 3.5rem); /* Diminui dinamicamente em telas pequenas */
     font-weight: 800;
-    line-height: 1.15;
+    line-height: 1.25;
     margin-bottom: 20px;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
+    width: 100%;
 }
+
 .hero-subtitle {
-    font-size: 1.15rem;
+    font-size: clamp(0.95rem, 4vw, 1.15rem);
     color: var(--text-secondary);
     margin-bottom: 32px;
-    max-width: 580px;
+    max-width: 100%;
+    width: 100%;
 }
 .hero-actions {
     display: flex;
@@ -513,12 +526,65 @@ ul {
 }
 
 @media (max-width: 768px) {
-    /* Ajustes da Navbar no Mobile */
-    .nav-container {
+    .container {
+        padding: 0 16px; /* Reduz ligeiramente o padding para dar mais espaço útil ao texto */
+    }
+
+    /* Ajuste da estrutura do Hero */
+    .hero-section {
+        padding: 110px 0 50px;
+    }
+
+    .hero-container {
+        display: flex;
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .hero-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .badge-tag {
+        font-size: 0.75rem;
+        padding: 6px 12px;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .hero-actions {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
         gap: 12px;
     }
+
+    .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Posição dos botões flutuantes para não tapar o botão do site */
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 1.4rem;
+        bottom: 20px;
+        right: 16px;
+    }
+
+    .back-to-top {
+        bottom: 20px;
+        right: 74px;
+        width: 40px;
+        height: 40px;
+    }
+}
     
     .logo-moderno {
         justify-content: center;
