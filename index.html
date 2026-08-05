@@ -3,837 +3,307 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CONTAVANN | Contabilidade Moderna</title>
+    <title>CONTAVANN | Contabilidade Consultiva & Soluções Financeiras</title>
+    <meta name="description" content="Contabilidade estratégica e inteligente para MEIs, Simples Nacional, Lucro Presumido, Lucro Real, Carnê-Leão e Saída Definitiva do Brasil. Atendimento digital e humanizado.">
     
-    <!-- FAVICON PRINCIPAL (GOOGLE & NAVEGADORES) -->
-    <link rel="icon" type="image/jpeg" sizes="512x512" href="img/icone.png">
-    <link rel="apple-touch-icon" href="img/icone.png">
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.contavann.com.br/">
+    <meta property="og:title" content="CONTAVANN | Contabilidade Estratégica">
+    <meta property="og:description" content="Transformamos a contabilidade da sua empresa em uma ferramenta de inteligência estratégica e financeira.">
+    <meta property="og:image" content="https://www.contavann.com.br/assets/og-image.jpg">
 
-    <!-- BIBLIOTECA FONT AWESOME PARA O WHATSAPP -->
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CONTAVANN | Contabilidade Estratégica">
+    <meta name="twitter:description" content="Transformamos a contabilidade da sua empresa em uma ferramenta de inteligência estratégica e financeira.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+
+    <!-- Fontes & Ícones -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <!-- BIBLIOTECA FONT AWESOME ADICIONADA PARA O ÍCONE DO WHATSAPP -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <style>
-        /* --- VARIÁVEIS DE DESIGN --- */
-        :root {
-            --primary: #0F172A;
-            --accent: #2563EB;
-            --whatsapp: #25D366;
-            --text: #334155;
-            --bg-light: #F8FAFC;
-            --white: #FFFFFF;
-            --transition: all 0.3s ease;
-        }
-
-        /* --- RESET & CONFIGURAÇÕES GERAIS --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--bg-light);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* --- HEADER & MENU INTERATIVO (HAMBÚRGUER COM SUBMENU) --- */
-        header {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 0;
-        }
-
-        /* --- NOVO DESIGN DO LOGO (MODERNO & CHAMATIVO) --- */
-        .logo-moderno {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .logo-icone {
-            width: 38px;
-            height: 38px;
-            display: grid;
-            place-items: center;
-            background: linear-gradient(135deg, var(--accent) 0%, #00d2ff 100%);
-            color: var(--white);
-            border-radius: 10px;
-            padding: 6px;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
-            transition: var(--transition);
-        }
-
-        .logo-texto {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: var(--primary);
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            font-family: 'Segoe UI', sans-serif;
-            transition: var(--transition);
-        }
-
-        .logo-texto .destaque {
-            color: var(--accent);
-            position: relative;
-            background: linear-gradient(to right, var(--accent), #00b4db);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .logo-moderno:hover .logo-icone {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
-        }
-
-        .logo-moderno:hover .logo-texto {
-            letter-spacing: 2px;
-        }
-
-        .menu-container {
-            position: relative;
-            display: inline-block;
-        }
-
-        .hamburger-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            padding: 10px;
-            z-index: 1001;
-        }
-
-        .hamburger-btn span {
-            display: block;
-            width: 28px;
-            height: 3px;
-            background-color: var(--primary);
-            border-radius: 2px;
-            transition: var(--transition);
-        }
-
-        .main-menu {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background-color: var(--white);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            list-style: none;
-            width: 220px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: var(--transition);
-            border: 1px solid #E2E8F0;
-        }
-
-        .menu-container:hover .main-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .main-menu li {
-            position: relative;
-        }
-
-        .menu-item {
-            display: block;
-            padding: 1rem 1.5rem;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: var(--transition);
-            cursor: pointer;
-            border: none;
-            background: none;
-            width: 100%;
-            text-align: left;
-        }
-
-        .menu-item:hover {
-            background-color: #F1F5F9;
-            color: var(--accent);
-        }
-
-        .submenu {
-            position: absolute;
-            top: 0;
-            right: 100%;
-            background-color: var(--white);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            list-style: none;
-            width: 200px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateX(10px);
-            transition: var(--transition);
-            border: 1px solid #E2E8F0;
-        }
-
-        .has-submenu:hover .submenu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(0);
-        }
-
-        .submenu-btn {
-            display: block;
-            width: 100%;
-            padding: 0.8rem 1.5rem;
-            background: none;
-            border: none;
-            text-align: left;
-            color: var(--text);
-            font-weight: 600;
-            font-size: 0.85rem;
-            cursor: pointer;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .submenu-btn:hover {
-            background-color: var(--accent);
-            color: var(--white);
-        }
-
-        .has-submenu::after {
-            content: ' ◂';
-            position: absolute;
-            right: 15px;
-            top: 15px;
-            font-size: 0.8rem;
-            color: #94A3B8;
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            padding: 12rem 0 6rem 0;
-            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
-            color: var(--white);
-            text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            letter-spacing: -0.5px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #94A3B8;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* --- TÍTULOS DE SEÇÃO --- */
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            color: var(--primary);
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 4px;
-            background-color: var(--accent);
-            margin: 0.5rem auto 0 auto;
-            border-radius: 2px;
-        }
-
-        /* --- SEÇÃO SOBRE NÓS --- */
-        .about-section {
-            padding: 6rem 0;
-            background-color: var(--white);
-            scroll-margin-top: 6rem;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            color: var(--text);
-            font-size: 1.05rem;
-        }
-
-        .about-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        .stat-card {
-            background-color: var(--bg-light);
-            padding: 2rem;
-            border-radius: 8px;
-            text-align: center;
-            border-left: 4px solid var(--accent);
-        }
-
-        .stat-card h4 {
-            font-size: 2.2rem;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-card p {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        /* --- CARROSSEL DE SERVIÇOS --- */
-        .services-section {
-            padding: 6rem 0;
-            position: relative;
-        }
-
-        .carousel-container {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border: 1px solid #E2E8F0;
-        }
-
-        .carousel-track {
-            display: flex;
-            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-            width: 100%;
-        }
-
-        .service-card {
-            flex: 0 0 100%;
-            width: 100%;
-            background-color: var(--white);
-            padding: 4rem 3rem;
-            text-align: center;
-        }
-
-        .service-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            display: inline-block;
-        }
-
-        .service-card h3 {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .service-card p {
-            color: var(--text);
-            font-size: 1.05rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: var(--white);
-            border: 1px solid #E2E8F0;
-            color: var(--primary);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            transition: var(--transition);
-            z-index: 10;
-        }
-
-        .carousel-btn:hover {
-            background-color: var(--accent);
-            color: var(--white);
-            border-color: var(--accent);
-        }
-
-        .carousel-btn.prev { left: calc(50% - 460px); }
-        .carousel-btn.next { right: calc(50% - 460px); }
-
-        /* --- SEÇÃO FALE CONOSCO --- */
-        .contact-section {
-            padding: 6rem 0;
-            background-color: var(--white);
-            scroll-margin-top: 6rem;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .contact-card {
-            background-color: var(--bg-light);
-            padding: 2.5rem 2rem;
-            border-radius: 12px;
-            text-align: center;
-            border: 1px solid #E2E8F0;
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-            border-color: var(--accent);
-        }
-
-        .contact-icon-svg {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 1.2rem;
-        }
-
-        .contact-icon-svg.insta {
-            fill: none;
-            stroke: var(--primary);
-            stroke-width: 2;
-        }
-        
-        .contact-card:hover .contact-icon-svg.insta {
-            stroke: #E1306C;
-        }
-
-        .contact-icon-svg.wpp {
-            fill: #25D366;
-        }
-
-        .contact-icon-svg.mail {
-            fill: var(--accent);
-        }
-
-        .contact-card h3 {
-            font-size: 1.2rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-card p {
-            font-size: 1rem;
-            color: var(--text);
-            font-weight: 600;
-            word-break: break-all;
-        }
-
-        .contact-card:hover p {
-            color: var(--accent);
-        }
-
-        /* --- AJUSTE DEFINITIVO DO BOTÃO DO WHATSAPP --- */
-        .whatsapp { 
-            position: fixed; 
-            right: 25px; 
-            bottom: 25px; 
-            width: 65px; 
-            height: 65px; 
-            display: grid; 
-            place-items: center; 
-            border-radius: 50%; 
-            background: #25d366; 
-            color: #fff; 
-            text-decoration: none; 
-            font-size: 30px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,.3); 
-            z-index: 999; 
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .whatsapp:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background-color: var(--primary);
-            color: #94A3B8;
-            padding: 3rem 0;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        /* RESPONSIVIDADE */
-        @media (max-width: 968px) {
-            .about-content { grid-template-columns: 1fr; gap: 2.5rem; }
-            .carousel-btn { display: none; }
-        }
-		
-        .logo-texto {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: var(--primary);
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            font-family: 'Segoe UI', sans-serif;
-            transition: var(--transition);
-            white-space: nowrap;
-        }
-
-        @media (max-width: 480px) {
-            .logo-moderno {
-                gap: 8px;
-            }
-            .logo-icone {
-                width: 32px;  
-                height: 32px;
-                padding: 5px;
-            }
-            .logo-texto {
-                font-size: 1.25rem; 
-                letter-spacing: 1px;
-            }
-        }
-		
-        @media (max-width: 768px) {
-            .hero {
-                padding: 8rem 0 4rem 0; 
-            }
-
-            .hero h1 {
-                font-size: 1.8rem; 
-                line-height: 1.3;  
-                padding: 0 10px;   
-            }
-
-            .hero p {
-                font-size: 1rem;   
-                padding: 0 15px;
-            }
-        }
-		
-        @media (max-width: 968px) {
-            .about-content { 
-                grid-template-columns: 1fr; 
-                gap: 2.5rem; 
-            }
-            .carousel-btn { 
-                display: none; 
-            }
-        }
-
-        @media (max-width: 768px) {
-            html, body {
-                overflow-x: hidden;
-                width: 100%;
-            }
-
-            .container {
-                width: 92%; 
-                padding: 0;
-            }
-
-            .about-stats {
-                grid-template-columns: 1fr; 
-                gap: 1rem;
-                width: 100%;
-            }
-
-            .stat-card {
-                padding: 1.5rem;
-            }
-
-            .about-text h3 {
-                font-size: 1.5rem;
-                word-wrap: break-word;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-        }
-    </style>
+    
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Dados Estruturados (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AccountingService",
+      "name": "CONTAVANN Contabilidade",
+      "image": "https://www.contavann.com.br/assets/logo.png",
+      "telephone": "+5511916327410",
+      "email": "contavann@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "BR"
+      },
+      "url": "https://www.contavann.com.br"
+    }
+    </script>
 </head>
 <body>
 
-    <!-- HEADER / NAVEGAÇÃO COMPACTA -->
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#inicio" class="logo-moderno" aria-label="CONTAVANN Contabilidade">
-                    <span class="logo-icone">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </span>
-                    <span class="logo-texto">CONTA<span class="destaque">VANN</span></span>
-                </a>
-                
-                <div class="menu-container">
-                    <button class="hamburger-btn" aria-label="Abrir Menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                    
-                    <ul class="main-menu">
-                        <li><a href="#sobre-nos" class="menu-item">Sobre Nós</a></li>
-                        <li><a href="#fale-conosco" class="menu-item">Fale Conosco</a></li>
-                        
-                        <li class="has-submenu">
-                            <span class="menu-item">Sou Cliente</span>
-                            <ul class="submenu">
-                                <li><a href="https://www.ironsolutions.com.br" target="_blank" class="submenu-btn">SERVIÇO 1</a></li>
-                                <li><a href="https://www.ironsolutions.com.br" target="_blank" class="submenu-btn">SERVIÇO 2</a></li>
-                                <li><a href="https://www.ironsolutions.com.br" target="_blank" class="submenu-btn">SERVIÇO 3</a></li>
-                                <li><a href="https://www.ironsolutions.com.br" target="_blank" class="submenu-btn">SERVIÇO 4</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+    <!-- NAVBAR PREMIUM FIXA -->
+    <header class="navbar-header" id="navbar">
+        <div class="container nav-container">
+            <a href="#inicio" class="logo-moderno" aria-label="CONTAVANN Página Inicial">
+                <span class="logo-icone">
+                    <i class="fa-solid fa-chart-line"></i>
+                </span>
+                <span class="logo-texto">CONTA<span class="destaque">VANN</span></span>
+            </a>
+
+            <!-- NAVEGAÇÃO HORIZONTAL (SEM HAMBÚRGUER) -->
+            <nav class="nav-menu" aria-label="Navegação Principal">
+                <a href="#inicio" class="nav-link active">Início</a>
+                <a href="#sobre-nos" class="nav-link">Sobre</a>
+                <a href="#servicos" class="nav-link">Soluções</a>
+                <a href="#tecnologias" class="nav-link">Especialidades</a>
+                <a href="#contato" class="nav-link">Contato</a>
             </nav>
+
+            <div class="nav-actions">
+                <a href="https://wa.me/5511916327410" target="_blank" rel="noopener" class="btn btn-primary btn-glow">
+                    <span>Falar com Especialista</span>
+                    <i class="fa-solid fa-arrow-right-long"></i>
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="container">
-            <h1>Descomplique a Contabilidade da sua Empresa</h1>
-            <p>Soluções modernas, digitais e seguras para o seu negócio focar apenas no crescimento.</p>
-        </div>
-    </section>
-
-    <!-- SEÇÃO COMPLETA: SOBRE NÓS -->
-    <!-- SEÇÃO COMPLETA: SOBRE NÓS -->
-    <section class="about-section" id="sobre-nos">
-        <div class="container">
-            <h2 class="section-title">Sobre Nós</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Contavann Contabilidade e Gestão Financeira</h3>
-                    <p>Fundada em 2024, a Contavann nasceu com o propósito de transformar a contabilidade em uma ferramenta estratégica para quem empreende, oferecendo um atendimento próximo, consultivo e personalizado.</p>
-                    <p>Atendemos empresas de diversos portes e regimes tributários, incluindo MEI, Simples Nacional, Lucro Presumido e Lucro Real, além de prestadores de serviços, profissionais autônomos e empresários em todo o Brasil e no exterior.</p>
-                    <p>Nossa atuação vai além da rotina contábil. Oferecemos soluções completas para abertura, regularização e gestão de empresas, planejamento tributário, folha de pagamento, consultoria empresarial, saída fiscal do Brasil (Exit Tax), Carnê-Leão para profissionais autônomos, além de assessoria especializada para pessoas não residentes que recebem rendimentos de fonte brasileira, sempre com foco em segurança, conformidade fiscal e economia tributária.</p>
-                    <p>Mais do que cumprir obrigações fiscais, nosso compromisso é ajudar empresários e profissionais a tomar decisões estratégicas, reduzir riscos, manter a regularidade perante os órgãos fiscais e crescer de forma sustentável.</p>
-                    <p>Na Contavann contabilidade, acreditamos que um atendimento humanizado, aliado ao conhecimento técnico e à atualização constante da legislação, faz toda a diferença para quem deseja empreender com tranquilidade e segurança.</p>
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero-section" id="inicio">
+            <div class="hero-bg-glow"></div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="badge-tag">
+                        <span class="badge-dot"></span>
+                        Contabilidade Inteligente & Consultiva
+                    </div>
+                    <h1 class="hero-title">Sua empresa merece uma contabilidade que vai além das obrigações fiscais.</h1>
+                    <p class="hero-subtitle">Atendimento consultivo para MEIs, empresas do Simples Nacional, Lucro Presumido e Lucro Real, profissionais autônomos, Carnê-Leão e Saída Fiscal do Brasil.</p>
+                    <div class="hero-actions">
+                        <a href="https://wa.me/5511916327410" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+                            <span>Solicitar Análise Gratuita</span>
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                        <a href="#servicos" class="btn btn-secondary btn-lg">
+                            <span>Conhecer Soluções</span>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="about-stats">
-                    <div class="stat-card">
-                        <h4>+500</h4>
-                        <p>Empresas Atendidas</p>
-                    </div>
-                    <div class="stat-card">
-                        <h4>Global</h4>
-                        <p>Clientes Internacionais</p>
-                    </div>
-                    <div class="stat-card">
-                        <h4>99%</h4>
-                        <p>Satisfação dos Clientes</p>
-                    </div>
-                    <div class="stat-card">
-                        <h4>100%</h4>
-                        <p>Digital e Seguro</p>
+
+                <div class="hero-mockup">
+                    <div class="glass-card mockup-card">
+                        <div class="mockup-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="mockup-title">Painel Estratégico CONTAVANN</span>
+                        </div>
+                        <div class="mockup-body">
+                            <div class="stat-badge float-1">
+                                <i class="fa-solid fa-shield-halved text-accent"></i>
+                                <div>
+                                    <p>Conformidade Fiscal</p>
+                                    <strong>100% Garantida</strong>
+                                </div>
+                            </div>
+                            <div class="stat-badge float-2">
+                                <i class="fa-solid fa-arrow-trend-down text-success"></i>
+                                <div>
+                                    <p>Economia Tributária</p>
+                                    <strong>Abono Legal IRPF/PJ</strong>
+                                </div>
+                            </div>
+                            <div class="chart-visual">
+                                <div class="bar bar-1"></div>
+                                <div class="bar bar-2"></div>
+                                <div class="bar bar-3"></div>
+                                <div class="bar bar-4"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- SEÇÃO: CARROSSEL DE SERVIÇOS -->
-    <section class="services-section">
-        <div class="container">
-            <h2 class="section-title">Nossas Soluções</h2>
-            
-            <button class="carousel-btn prev" onclick="moveManual(-1)">&#10094;</button>
-            <button class="carousel-btn next" onclick="moveManual(1)">&#10095;</button>
+        <!-- SOBRE NÓS E ESTATÍSTICAS -->
+        <section class="section-padding" id="sobre-nos">
+            <div class="container">
+                <div class="grid-2 gap-4 align-center">
+                    <div class="reveal-left">
+                        <div class="section-header text-left">
+                            <span class="section-badge">Sobre a Contavann</span>
+                            <h2 class="section-title">Mais que cumprir obrigações: seu parceiro de crescimento.</h2>
+                        </div>
+                        <p class="text-description">
+                            Fundada com o propósito de redefinir o relacionamento entre empresas e contabilidade, a Contavann oferece uma abordagem consultiva, próxima e integralmente digital.
+                        </p>
+                        <p class="text-description">
+                            Atuamos com foco em inteligência tributária, prevenção de passivos fiscais, gestão folha de pagamento e processos internacionais complexos como a Declaração de Saída Definitiva e Carnê-Leão.
+                        </p>
+                    </div>
 
-            <div class="carousel-container">
-                <div class="carousel-track" id="track">
-                    <div class="service-card">
-                        <span class="service-icon">🏢</span>
+                    <div class="stats-grid reveal-right">
+                        <div class="glass-card stat-item">
+                            <h3 class="counter" data-target="500">0</h3>
+                            <span class="plus">+</span>
+                            <p>Empresas Atendidas</p>
+                        </div>
+                        <div class="glass-card stat-item">
+                            <h3 class="counter" data-target="99">0</h3>
+                            <span class="plus">%</span>
+                            <p>Índice de Satisfação</p>
+                        </div>
+                        <div class="glass-card stat-item">
+                            <h3>Global</h3>
+                            <p>Atendimento Internacional</p>
+                        </div>
+                        <div class="glass-card stat-item">
+                            <h3 class="counter" data-target="100">0</h3>
+                            <span class="plus">%</span>
+                            <p>Digital & Seguro</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVIÇOS / SOLUÇÕES -->
+        <section class="section-padding bg-surface" id="servicos">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-badge">Nossas Soluções</span>
+                    <h2 class="section-title">Serviços Contábeis de Alta Performance</h2>
+                    <p class="section-subtitle">Soluções sob medida desenhadas para a máxima eficiência do seu negócio.</p>
+                </div>
+
+                <div class="grid-3 gap-3">
+                    <div class="glass-card service-card reveal-up">
+                        <div class="service-icon"><i class="fa-solid fa-building-circle-check"></i></div>
                         <h3>Legalização & Abertura</h3>
-                        <p>Abertura, alteração, regularização e encerramento de empresas e CNPJs de forma rápida e segura.</p>
+                        <p>Abertura, alteração de contrato e regularização de CNPJ com agilidade e total apoio regulatório.</p>
                     </div>
-                    <div class="service-card">
-                        <span class="service-icon">📊</span>
-                        <h3>Assessoria Contábil & Fiscal</h3>
-                        <p>Atendimento especializado para MEI, Simples Nacional, Lucro Presumido e Lucro Real, com emissão de notas e guias.</p>
+
+                    <div class="glass-card service-card reveal-up" style="animation-delay: 0.1s;">
+                        <div class="service-icon"><i class="fa-solid fa-calculator"></i></div>
+                        <h3>Gestão Fiscal & Contábil</h3>
+                        <p>Apuração precisa de tributos para MEI, Simples Nacional, Lucro Presumido e Lucro Real.</p>
                     </div>
-                    <div class="service-card">
-                        <span class="service-icon">📈</span>
-                        <h3>Planejamento & Consultoria</h3>
-                        <p>Consultoria contábil, financeira e planejamento tributário estratégico para reduzir custos legalmente.</p>
+
+                    <div class="glass-card service-card reveal-up" style="animation-delay: 0.2s;">
+                        <div class="service-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                        <h3>Planejamento Tributário</h3>
+                        <p>Análise preventiva da sua carga tributária com estratégias legais para redução de impostos.</p>
                     </div>
-                    <div class="service-card">
-                        <span class="service-icon">💼</span>
-                        <h3>Soluções para Autônomos & Prestadores</h3>
-                        <p>Atendimento especializado para prestadores de serviços, autônomos e gestão completa de Carnê-Leão e IRPF.</p>
+
+                    <div class="glass-card service-card reveal-up">
+                        <div class="service-icon"><i class="fa-solid fa-user-tie"></i></div>
+                        <h3>Autônomos & Carnê-Leão</h3>
+                        <p>Assessoria completa na apuração mensal de rendimentos para profissionais liberais e IRPF.</p>
                     </div>
-                    <div class="service-card">
-                        <span class="service-icon">👥</span>
+
+                    <div class="glass-card service-card reveal-up" style="animation-delay: 0.1s;">
+                        <div class="service-icon"><i class="fa-solid fa-users-gear"></i></div>
                         <h3>Departamento Pessoal</h3>
-                        <p>Gestão completa e emissão de folha de pagamento, pró-labore e cumprimento de obrigações acessórias trabalhistas.</p>
+                        <p>Processamento de folha de pagamento, pro-labore, eSocial e obrigações trabalhistas.</p>
                     </div>
-                    <div class="service-card">
-                        <span class="service-icon">🌐</span>
-                        <h3>Internacional & Regularização</h3>
-                        <p>Comunicação e Declaração de Saída Definitiva do País, assessoria a não residentes com rendimentos no Brasil, parcelamentos e certidões.</p>
+
+                    <div class="glass-card service-card reveal-up" style="animation-delay: 0.2s;">
+                        <div class="service-icon"><i class="fa-solid fa-earth-americas"></i></div>
+                        <h3>Saída Definitiva & Expatriação</h3>
+                        <p>Declaração de Saída Definitiva do País (Exit Tax) e regularização de rendimentos do exterior.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- SEÇÃO: FALE CONOSCO -->
-    <section class="contact-section" id="fale-conosco">
-        <div class="container">
-            <h2 class="section-title">Fale Conosco</h2>
-            
-            <div class="contact-grid">
-                <!-- Cartão Instagram -->
-                <a href="https://instagram.com/contadora.vanessamatos" target="_blank" class="contact-card">
-                    <svg class="contact-icon-svg insta" viewBox="0 0 24 24">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                    </svg>
-                    <h3>Instagram</h3>
-                    <p>@contadora.vanessamatos</p>
-                </a>
+        <!-- ESPECIALIDADES / TECNOLOGIAS E REGIMES -->
+        <section class="section-padding" id="tecnologias">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-badge">Áreas de Atuação</span>
+                    <h2 class="section-title">Especialidades & Regimes Atendidos</h2>
+                </div>
 
-                <!-- Cartão WhatsApp -->
-                <a href="https://wa.me/5511916327410" target="_blank" class="contact-card">
-                    <svg class="contact-icon-svg" viewBox="0 0 512 512" style="width: 50px; height: 50px; fill: #25D366; margin-bottom: 1.2rem;">
-                        <path d="M256.017 0C114.63 0 0 114.629 0 256.014c0 45.197 11.734 89.345 34.004 128.512L0 512l131.054-34.357c37.669 20.547 80.25 31.378 124.935 31.378 141.399 0 256.029-114.629 256.029-256.007C512.017 114.63 397.416 0 256.017 0zm0 469.333c-40.402 0-79.998-10.835-114.507-31.334l-8.216-4.881-77.72 20.379 20.738-75.768-5.364-8.527C48.272 329.563 37.333 293.385 37.333 256.014c0-120.584 98.1-218.681 218.684-218.681 120.572 0 218.656 98.097 218.656 218.681 0 120.595-98.084 218.719-218.656 218.719zm119.825-163.633c-6.574-3.284-38.892-19.183-44.912-21.374-6.02-2.191-10.401-3.284-14.783 3.284-4.382 6.568-16.974 21.374-20.803 25.756-3.83 4.382-7.66 4.93-14.234 1.646-6.574-3.284-27.753-10.231-52.863-32.628-19.544-17.426-32.741-38.947-36.571-45.521-3.83-6.574-.41-10.126 2.876-13.399 2.951-2.94 6.574-7.66 9.858-11.492 3.284-3.83 4.382-6.568 6.574-10.952 2.191-4.382 1.096-8.216-.548-11.492-1.646-3.284-14.783-35.617-20.26-48.749-5.337-12.784-10.748-11.054-14.783-11.261l-12.602-.218c-4.382 0-11.492 1.646-17.512 8.216-6.02 6.568-22.977 22.467-22.977 54.796 0 32.328 23.525 63.541 26.81 67.923 3.284 4.382 46.297 70.697 112.152 99.117 15.663 6.76 27.886 10.792 37.422 13.824 15.727 4.996 30.043 4.292 41.353 2.603 12.613-1.884 38.892-15.895 44.368-31.215 5.476-15.32 5.476-28.463 3.83-31.215-1.646-2.759-6.02-4.394-12.594-7.678z"/>
-                    </svg>
-                    <h3>WhatsApp</h3>
-                    <p>(11) 91632-7410</p>
-                </a>
-
-                <!-- Cartão E-mail -->
-                <a href="mailto:contavann@gmail.com" class="contact-card">
-                    <svg class="contact-icon-svg mail" viewBox="0 0 24 24">
-                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                    </svg>
-                    <h3>E-mail</h3>
-                    <p>contavann@gmail.com</p>
-                </a>
+                <div class="badges-wrapper reveal-up">
+                    <span class="tech-badge"><i class="fa-solid fa-check text-accent"></i> Simples Nacional</span>
+                    <span class="tech-badge"><i class="fa-solid fa-check text-accent"></i> Lucro Presumido</span>
+                    <span class="tech-badge"><i class="fa-solid fa-check text-accent"></i> Lucro Real</span>
+                    <span class="tech-badge"><i class="fa-solid fa-check text-accent"></i> MEI Especializado</span>
+                    <span class="tech-badge"><i class="fa-solid fa-check text-accent"></i> Carnê-Leão</span>
+                    <span class="tech-badge"><i class="fa-solid fa-check text-accent"></i> Exit Tax (Saída Definitiva)</span>
+                    <span class="tech-badge"><i class="fa-solid fa-check text-accent"></i> IRPF e IRPJ</span>
+                    <span class="tech-badge"><i class="fa-solid fa-check text-accent"></i> eSocial / BPO Financeiro</span>
+                    <span class="tech-badge"><i class="fa-solid fa-check text-accent"></i> Regularização Fiscal</span>
+                    <span class="tech-badge"><i class="fa-solid fa-check text-accent"></i> Certidões Negativas</span>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- FALE CONOSCO -->
+        <section class="section-padding bg-surface" id="contato">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-badge">Canais Digitais</span>
+                    <h2 class="section-title">Fale Conosco</h2>
+                    <p class="section-subtitle">Escolha o canal de sua preferência e converse com a nossa equipe.</p>
+                </div>
+
+                <div class="grid-3 gap-3">
+                    <a href="https://wa.me/5511916327410" target="_blank" rel="noopener" class="glass-card contact-card reveal-up">
+                        <div class="contact-icon wpp"><i class="fa-brands fa-whatsapp"></i></div>
+                        <h3>WhatsApp</h3>
+                        <p>(11) 91632-7410</p>
+                    </a>
+
+                    <a href="https://instagram.com/contadora.vanessamatos" target="_blank" rel="noopener" class="glass-card contact-card reveal-up" style="animation-delay: 0.1s;">
+                        <div class="contact-icon insta"><i class="fa-brands fa-instagram"></i></div>
+                        <h3>Instagram</h3>
+                        <p>@contadora.vanessamatos</p>
+                    </a>
+
+                    <a href="mailto:contavann@gmail.com" class="glass-card contact-card reveal-up" style="animation-delay: 0.2s;">
+                        <div class="contact-icon mail"><i class="fa-solid fa-envelope"></i></div>
+                        <h3>E-mail</h3>
+                        <p>contavann@gmail.com</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- FOOTER -->
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 CONTAVANN Contabilidade. Todos os direitos reservados.</p>
+            <div class="footer-content">
+                <a href="#inicio" class="logo-moderno">
+                    <span class="logo-icone"><i class="fa-solid fa-chart-line"></i></span>
+                    <span class="logo-texto">CONTA<span class="destaque">VANN</span></span>
+                </a>
+                <p>&copy; 2026 CONTAVANN Contabilidade. Todos os direitos reservados.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- BOTÃO FLUTUANTE DO WHATSAPP -->
-    <a class="whatsapp" href="https://wa.me/5511916327410" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">
+    <!-- BOTÃO FLUTUANTE WHATSAPP & VOLTAR AO TOPO -->
+    <a href="https://wa.me/5511916327410" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Atendimento WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- LÓGICA DO CARROSSEL EM JAVASCRIPT -->
-    <script>
-        let currentIndex = 0;
-        const track = document.getElementById('track');
-        const totalCards = 6; // Ajustado de 4 para 6 cartões
-        let autoSlideInterval;
+    <button id="backToTop" class="back-to-top" aria-label="Voltar ao Topo">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
 
-        function updateCarousel() {
-            track.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
-
-        function nextSlide() {
-            currentIndex++;
-            if (currentIndex >= totalCards) {
-                currentIndex = 0;
-            }
-            updateCarousel();
-        }
-
-        function prevSlide() {
-            currentIndex--;
-            if (currentIndex < 0) {
-                currentIndex = totalCards - 1;
-            }
-            updateCarousel();
-        }
-
-        function startAutoSlide() {
-            autoSlideInterval = setInterval(nextSlide, 3500); // 3.5 segundos por slide
-        }
-
-        function moveManual(direction) {
-            clearInterval(autoSlideInterval);
-            if (direction === 1) {
-                nextSlide();
-            } else {
-                prevSlide();
-            }
-            startAutoSlide();
-        }
-
-        startAutoSlide();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
